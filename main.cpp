@@ -6,7 +6,8 @@ int tamo(char *cadena){
     for (int i=0;cadena[i]!='\0';++i){
         tam++;
     }
-    cout<<tam<<endl;
+    return tam;
+    //cout<<tam<<endl;
 }
 int rec_tamo(char *cadena){
     if(*cadena!='\0')
@@ -14,21 +15,21 @@ int rec_tamo(char *cadena){
     return 1+rec_tamo(++cadena);
 }
 void invertir(char *cad){
-    char fin=*cad-tamo(cad)-1;
+    char *fin = cad + tamo(cad) - 1;
     char t;
-    while(fin>*cad){
+    while(fin > cad){
         t=*cad;
-        *cad=fin;
-        fin=t;
+        *cad=*fin;
+        *fin=t;
         fin--;
-        *cad++;
+        cad++;
     }
 }
 int main()
 {
     char cad[]={'h','o','l','a','\0'};
-    tamo(cad);
-    invetir(cad)
-
+    cout << tamo(cad) << endl;
+    invertir(cad);
+    cout<<cad<<endl;
     return 0;
 }
