@@ -14,12 +14,12 @@ int rec_tamo(char *cadena){
     return 1+rec_tamo(++cadena);
 }
 void invertir(char *cad){
-    char fin=cad+tamo(*cad)-1;
+    char fin=*cad-tamo(cad)-1;
     char t;
     while(fin>*cad){
         t=*cad;
-        *cad=*fin;
-        *fin=t;
+        *cad=fin;
+        fin=t;
         fin--;
         *cad++;
     }
