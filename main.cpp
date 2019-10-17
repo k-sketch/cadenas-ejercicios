@@ -7,15 +7,14 @@ int tamo(char *cadena){
         tam++;
     }
     return tam;
-    //cout<<tam<<endl;
 }
 int rec_tamo(char *cadena){
-    if(*cadena!='\0')
+    if(*cadena == '\0')
         return 0;
-    return 1+rec_tamo(++cadena);
+    return 1+ rec_tamo(++cadena);
 }
 void invertir(char *cad){
-    char *fin = cad + tamo(cad) - 1;
+    char *fin = cad + tamo(cad);
     char t;
     while(fin > cad){
         t=*cad;
@@ -25,11 +24,17 @@ void invertir(char *cad){
         cad++;
     }
 }
+/*int rec_invertir(char *cadena){
+    }
+    return 1+rec_invertir(cadena);
+}*/
 int main()
 {
     char cad[]={'h','o','l','a','\0'};
-    cout << tamo(cad) << endl;
-    invertir(cad);
+    cout << rec_tamo(cad) << endl;
+    /*invertir(cad);
+    cout<<cad<<endl;*/
+    rec_invertir(cad);
     cout<<cad<<endl;
     return 0;
 }
